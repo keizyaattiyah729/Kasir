@@ -1,0 +1,452 @@
+var products = [
+  ["BKW001", "Bakwan", 5000],
+  ["SGK001", "Singkong Goreng", 8000],
+  ["PGS001", "Pangsit Goreng", 12000],
+  ["PRK001", "Perkedel", 6000],
+  ["KOP001", "Kopi", 10000],
+  ["TEH001", "Teh Manis", 5000],
+  ["AIR001", "Air Mineral", 3000],
+  ["JUS001", "Jus Jeruk", 15000],
+  ["NAS001", "Nasi Goreng", 18000],
+  ["MIE001", "Mie Goreng", 15000]
+]
+reset()
+var a0 = component("label", "Pencarian:")
+var txt_search = component("text", "")
+var b_search = component("button", "Cari")
+var a1 = component("label", "SKU Produk:")
+var c1 = component("combobox", ",BKW001,SGK001,PGS001,PRK001,KOP001,TEH001,AIR001,JUS001,NAS001,MIE001")
+var a2 = component("label", "Jumlah:")
+var s1 = component("spin", "1,1,100,1")
+var b1 = component("button", "Tambah ke Keranjang")
+var a3 = component("label", "Keranjang Belanja:")
+var tbl = component("table", "No,Nama,Qty,Harga,Subtotal")
+var b2 = component("button", "Hitung Total")
+var b_hapus = component("button", "Hapus Item Terpilih")
+var b3 = component("button", "Reset Keranjang")
+var a4 = component("label", "Total: Rp 0")
+
+event(b_search, fn() {
+  var keyword = get(txt_search, "text")
+  if (keyword == "bakwan") {
+    config(c1, "text", "BKW001")
+  }
+  if (keyword == "BKW001") {
+    config(c1, "text", "BKW001")
+  }
+  if (keyword == "singkong") {
+    config(c1, "text", "SGK001")
+  }
+  if (keyword == "SGK001") {
+    config(c1, "text", "SGK001")
+  }
+  if (keyword == "pangsit") {
+    config(c1, "text", "PGS001")
+  }
+  if (keyword == "PGS001") {
+    config(c1, "text", "PGS001")
+  }
+  if (keyword == "perkedel") {
+    config(c1, "text", "PRK001")
+  }
+  if (keyword == "PRK001") {
+    config(c1, "text", "PRK001")
+  }
+  if (keyword == "kopi") {
+    config(c1, "text", "KOP001")
+  }
+  if (keyword == "KOP001") {
+    config(c1, "text", "KOP001")
+  }
+  if (keyword == "teh") {
+    config(c1, "text", "TEH001")
+  }
+  if (keyword == "TEH001") {
+    config(c1, "text", "TEH001")
+  }
+  if (keyword == "air") {
+    config(c1, "text", "AIR001")
+  }
+  if (keyword == "AIR001") {
+    config(c1, "text", "AIR001")
+  }
+  if (keyword == "jus") {
+    config(c1, "text", "JUS001")
+  }
+  if (keyword == "JUS001") {
+    config(c1, "text", "JUS001")
+  }
+  if (keyword == "nasi") {
+    config(c1, "text", "NAS001")
+  }
+  if (keyword == "NAS001") {
+    config(c1, "text", "NAS001")
+  }
+  if (keyword == "mie") {
+    config(c1, "text", "MIE001")
+  }
+  if (keyword == "MIE001") {
+    config(c1, "text", "MIE001")
+  }
+  message("Produk ditemukan!")
+})
+
+event(b1, fn() {
+  var sku = get(c1, "text")
+  var qty = get(s1, "contents")
+  var current = get(tbl, "contents")
+  var no = len(current) + 1
+  if (empty(sku)) {
+    message("Pilih SKU produk!")
+  }
+  if (sku == "BKW001") {
+    var nama = "Bakwan"
+    var harga = 5000
+    var subtotal = 5000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "SGK001") {
+    var nama = "Singkong Goreng"
+    var harga = 8000
+    var subtotal = 8000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "PGS001") {
+    var nama = "Pangsit Goreng"
+    var harga = 12000
+    var subtotal = 12000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "PRK001") {
+    var nama = "Perkedel"
+    var harga = 6000
+    var subtotal = 6000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "KOP001") {
+    var nama = "Kopi"
+    var harga = 10000
+    var subtotal = 10000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "TEH001") {
+    var nama = "Teh Manis"
+    var harga = 5000
+    var subtotal = 5000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "AIR001") {
+    var nama = "Air Mineral"
+    var harga = 3000
+    var subtotal = 3000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "JUS001") {
+    var nama = "Jus Jeruk"
+    var harga = 15000
+    var subtotal = 15000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "NAS001") {
+    var nama = "Nasi Goreng"
+    var harga = 18000
+    var subtotal = 18000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+  if (sku == "MIE001") {
+    var nama = "Mie Goreng"
+    var harga = 15000
+    var subtotal = 15000 * qty
+    var row = [string(no), nama, string(qty), string(harga), string(subtotal)]
+    var newcurrent = push(current, row)
+    config(tbl, "contents", newcurrent)
+    message("Ditambahkan!")
+  }
+})
+
+event(b2, fn() {
+  var current = get(tbl, "contents")
+  if (len(current) == 0) {
+    message("Keranjang masih kosong!")
+  }
+  if (len(current) == 1) {
+    var t1 = number(current[0][4])
+    config(a4, "text", "Total: Rp " + current[0][4])
+    message("Total dihitung!")
+  }
+  if (len(current) == 2) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var total = t1 + t2
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) == 3) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var total = t1 + t2 + t3
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) == 4) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var t4 = number(current[3][4])
+    var total = t1 + t2 + t3 + t4
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) == 5) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var t4 = number(current[3][4])
+    var t5 = number(current[4][4])
+    var total = t1 + t2 + t3 + t4 + t5
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) == 6) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var t4 = number(current[3][4])
+    var t5 = number(current[4][4])
+    var t6 = number(current[5][4])
+    var total = t1 + t2 + t3 + t4 + t5 + t6
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) == 7) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var t4 = number(current[3][4])
+    var t5 = number(current[4][4])
+    var t6 = number(current[5][4])
+    var t7 = number(current[6][4])
+    var total = t1 + t2 + t3 + t4 + t5 + t6 + t7
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) == 8) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var t4 = number(current[3][4])
+    var t5 = number(current[4][4])
+    var t6 = number(current[5][4])
+    var t7 = number(current[6][4])
+    var t8 = number(current[7][4])
+    var total = t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) == 9) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var t4 = number(current[3][4])
+    var t5 = number(current[4][4])
+    var t6 = number(current[5][4])
+    var t7 = number(current[6][4])
+    var t8 = number(current[7][4])
+    var t9 = number(current[8][4])
+    var total = t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+  if (len(current) >= 10) {
+    var t1 = number(current[0][4])
+    var t2 = number(current[1][4])
+    var t3 = number(current[2][4])
+    var t4 = number(current[3][4])
+    var t5 = number(current[4][4])
+    var t6 = number(current[5][4])
+    var t7 = number(current[6][4])
+    var t8 = number(current[7][4])
+    var t9 = number(current[8][4])
+    var t10 = number(current[9][4])
+    var total = t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10
+    config(a4, "text", "Total: Rp " + string(total))
+    message("Total dihitung!")
+  }
+})
+
+event(b_hapus, fn() {
+  var selected = get(tbl, "selected")
+  var current = get(tbl, "contents")
+  var jumlah = len(current)
+  if (jumlah == 0) {
+    message("Keranjang kosong!")
+  }
+  if (jumlah == 1) {
+    if (selected == 0) {
+      config(tbl, "contents", [])
+      config(a4, "text", "Total: Rp 0")
+      message("Item dihapus!")
+    }
+  }
+  if (jumlah == 2) {
+    if (selected == 0) {
+      var baris1 = ["1", current[1][1], current[1][2], current[1][3], current[1][4]]
+      config(tbl, "contents", [baris1])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 1) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      config(tbl, "contents", [baris1])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+  }
+  if (jumlah == 3) {
+    if (selected == 0) {
+      var baris1 = ["1", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris2 = ["2", current[2][1], current[2][2], current[2][3], current[2][4]]
+      config(tbl, "contents", [baris1, baris2])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 1) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[2][1], current[2][2], current[2][3], current[2][4]]
+      config(tbl, "contents", [baris1, baris2])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 2) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[1][1], current[1][2], current[1][3], current[1][4]]
+      config(tbl, "contents", [baris1, baris2])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+  }
+  if (jumlah == 4) {
+    if (selected == 0) {
+      var baris1 = ["1", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris2 = ["2", current[2][1], current[2][2], current[2][3], current[2][4]]
+      var baris3 = ["3", current[3][1], current[3][2], current[3][3], current[3][4]]
+      config(tbl, "contents", [baris1, baris2, baris3])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 1) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[2][1], current[2][2], current[2][3], current[2][4]]
+      var baris3 = ["3", current[3][1], current[3][2], current[3][3], current[3][4]]
+      config(tbl, "contents", [baris1, baris2, baris3])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 2) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris3 = ["3", current[3][1], current[3][2], current[3][3], current[3][4]]
+      config(tbl, "contents", [baris1, baris2, baris3])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 3) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris3 = ["3", current[2][1], current[2][2], current[2][3], current[2][4]]
+      config(tbl, "contents", [baris1, baris2, baris3])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+  }
+  if (jumlah == 5) {
+    if (selected == 0) {
+      var baris1 = ["1", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris2 = ["2", current[2][1], current[2][2], current[2][3], current[2][4]]
+      var baris3 = ["3", current[3][1], current[3][2], current[3][3], current[3][4]]
+      var baris4 = ["4", current[4][1], current[4][2], current[4][3], current[4][4]]
+      config(tbl, "contents", [baris1, baris2, baris3, baris4])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 1) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[2][1], current[2][2], current[2][3], current[2][4]]
+      var baris3 = ["3", current[3][1], current[3][2], current[3][3], current[3][4]]
+      var baris4 = ["4", current[4][1], current[4][2], current[4][3], current[4][4]]
+      config(tbl, "contents", [baris1, baris2, baris3, baris4])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 2) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris3 = ["3", current[3][1], current[3][2], current[3][3], current[3][4]]
+      var baris4 = ["4", current[4][1], current[4][2], current[4][3], current[4][4]]
+      config(tbl, "contents", [baris1, baris2, baris3, baris4])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 3) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris3 = ["3", current[2][1], current[2][2], current[2][3], current[2][4]]
+      var baris4 = ["4", current[4][1], current[4][2], current[4][3], current[4][4]]
+      config(tbl, "contents", [baris1, baris2, baris3, baris4])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+    if (selected == 4) {
+      var baris1 = ["1", current[0][1], current[0][2], current[0][3], current[0][4]]
+      var baris2 = ["2", current[1][1], current[1][2], current[1][3], current[1][4]]
+      var baris3 = ["3", current[2][1], current[2][2], current[2][3], current[2][4]]
+      var baris4 = ["4", current[3][1], current[3][2], current[3][3], current[3][4]]
+      config(tbl, "contents", [baris1, baris2, baris3, baris4])
+      message("Item dihapus! Klik Hitung Total untuk update.")
+    }
+  }
+  if (jumlah > 5) {
+    message("Untuk lebih dari 5 item, gunakan Reset Keranjang.")
+  }
+})
+
+event(b3, fn() {
+  config(tbl, "contents", [])
+  config(a4, "text", "Total: Rp 0")
+  message("Keranjang direset!")
+})
+
+var g = component("grid", "")
+grid_add(g, a0, 0, 0, 1, 1, 0, 1, 1, 1)
+grid_add(g, txt_search, 1, 0, 1, 1, 1, 1, 1, 1)
+grid_add(g, b_search, 2, 0, 1, 1, 0, 1, 1, 1)
+grid_add(g, a1, 0, 1, 1, 1, 0, 1, 1, 1)
+grid_add(g, c1, 1, 1, 2, 1, 1, 1, 2, 1)
+grid_add(g, a2, 0, 2, 1, 1, 0, 1, 1, 1)
+grid_add(g, s1, 1, 2, 1, 1, 1, 1, 1, 1)
+grid_add(g, b1, 2, 2, 1, 1, 1, 1, 1, 1)
+grid_add(g, a3, 0, 3, 3, 1, 0, 1, 1, 1)
+grid_add(g, tbl, 0, 4, 3, 3, 1, 1, 3, 2)
+grid_add(g, b2, 0, 7, 1, 1, 1, 1, 1, 1)
+grid_add(g, b_hapus, 1, 7, 1, 1, 1, 1, 1, 1)
+grid_add(g, b3, 2, 7, 1, 1, 1, 1, 1, 1)
+grid_add(g, a4, 0, 8, 3, 1, 1, 1, 3, 1)
+add(g)
+size(600, 540)
+title("Kasir Sederhana")
+show()
