@@ -14,81 +14,187 @@ reset()
 var a0 = component("label", "Pencarian:")
 var txt_search = component("text", "")
 var b_search = component("button", "Cari")
+
 var a1 = component("label", "SKU Produk:")
 var c1 = component("combobox", ",BKW001,SGK001,PGS001,PRK001,KOP001,TEH001,AIR001,JUS001,NAS001,MIE001")
 var a2 = component("label", "Jumlah:")
 var s1 = component("spin", "1,1,100,1")
 var b1 = component("button", "Tambah ke Keranjang")
+
 var a3 = component("label", "Keranjang Belanja:")
 var tbl = component("table", "No,Nama,Qty,Harga,Subtotal")
 var b2 = component("button", "Hitung Total")
+
 var b_hapus = component("button", "Hapus Item Terpilih")
+
 var b3 = component("button", "Reset Keranjang")
+
 var a4 = component("label", "Total: Rp 0")
 
 event(b_search, fn() {
   var keyword = get(txt_search, "contents")
+  if (empty(keyword)) {
+    message("Isi kolom pencarian!")
+  }
   if (keyword == "bakwan") {
     config(c1, "text", "BKW001")
+    message("Produk ditemukan: Bakwan")
+  }
+  if (keyword == "bak") {
+    config(c1, "text", "BKW001")
+    message("Produk ditemukan: Bakwan")
   }
   if (keyword == "BKW001") {
     config(c1, "text", "BKW001")
+    message("Produk ditemukan: Bakwan")
+  }
+  if (keyword == "BKW") {
+    config(c1, "text", "BKW001")
+    message("Produk ditemukan: Bakwan")
   }
   if (keyword == "singkong") {
     config(c1, "text", "SGK001")
+    message("Produk ditemukan: Singkong Goreng")
+  }
+  if (keyword == "sing") {
+    config(c1, "text", "SGK001")
+    message("Produk ditemukan: Singkong Goreng")
   }
   if (keyword == "SGK001") {
     config(c1, "text", "SGK001")
+    message("Produk ditemukan: Singkong Goreng")
+  }
+  if (keyword == "SGK") {
+    config(c1, "text", "SGK001")
+    message("Produk ditemukan: Singkong Goreng")
   }
   if (keyword == "pangsit") {
     config(c1, "text", "PGS001")
+    message("Produk ditemukan: Pangsit Goreng")
+  }
+  if (keyword == "pang") {
+    config(c1, "text", "PGS001")
+    message("Produk ditemukan: Pangsit Goreng")
   }
   if (keyword == "PGS001") {
     config(c1, "text", "PGS001")
+    message("Produk ditemukan: Pangsit Goreng")
+  }
+  if (keyword == "PGS") {
+    config(c1, "text", "PGS001")
+    message("Produk ditemukan: Pangsit Goreng")
   }
   if (keyword == "perkedel") {
     config(c1, "text", "PRK001")
+    message("Produk ditemukan: Perkedel")
+  }
+  if (keyword == "perke") {
+    config(c1, "text", "PRK001")
+    message("Produk ditemukan: Perkedel")
   }
   if (keyword == "PRK001") {
     config(c1, "text", "PRK001")
+    message("Produk ditemukan: Perkedel")
+  }
+  if (keyword == "PRK") {
+    config(c1, "text", "PRK001")
+    message("Produk ditemukan: Perkedel")
   }
   if (keyword == "kopi") {
     config(c1, "text", "KOP001")
+    message("Produk ditemukan: Kopi")
+  }
+  if (keyword == "kop") {
+    config(c1, "text", "KOP001")
+    message("Produk ditemukan: Kopi")
   }
   if (keyword == "KOP001") {
     config(c1, "text", "KOP001")
+    message("Produk ditemukan: Kopi")
+  }
+  if (keyword == "KOP") {
+    config(c1, "text", "KOP001")
+    message("Produk ditemukan: Kopi")
   }
   if (keyword == "teh") {
     config(c1, "text", "TEH001")
+    message("Produk ditemukan: Teh Manis")
+  }
+  if (keyword == "manis") {
+    config(c1, "text", "TEH001")
+    message("Produk ditemukan: Teh Manis")
   }
   if (keyword == "TEH001") {
     config(c1, "text", "TEH001")
+    message("Produk ditemukan: Teh Manis")
+  }
+  if (keyword == "TEH") {
+    config(c1, "text", "TEH001")
+    message("Produk ditemukan: Teh Manis")
   }
   if (keyword == "air") {
     config(c1, "text", "AIR001")
+    message("Produk ditemukan: Air Mineral")
+  }
+  if (keyword == "mineral") {
+    config(c1, "text", "AIR001")
+    message("Produk ditemukan: Air Mineral")
   }
   if (keyword == "AIR001") {
     config(c1, "text", "AIR001")
+    message("Produk ditemukan: Air Mineral")
+  }
+  if (keyword == "AIR") {
+    config(c1, "text", "AIR001")
+    message("Produk ditemukan: Air Mineral")
   }
   if (keyword == "jus") {
     config(c1, "text", "JUS001")
+    message("Produk ditemukan: Jus Jeruk")
+  }
+  if (keyword == "jeruk") {
+    config(c1, "text", "JUS001")
+    message("Produk ditemukan: Jus Jeruk")
   }
   if (keyword == "JUS001") {
     config(c1, "text", "JUS001")
+    message("Produk ditemukan: Jus Jeruk")
+  }
+  if (keyword == "JUS") {
+    config(c1, "text", "JUS001")
+    message("Produk ditemukan: Jus Jeruk")
   }
   if (keyword == "nasi") {
     config(c1, "text", "NAS001")
+    message("Produk ditemukan: Nasi Goreng")
+  }
+  if (keyword == "nas") {
+    config(c1, "text", "NAS001")
+    message("Produk ditemukan: Nasi Goreng")
   }
   if (keyword == "NAS001") {
     config(c1, "text", "NAS001")
+    message("Produk ditemukan: Nasi Goreng")
+  }
+  if (keyword == "NAS") {
+    config(c1, "text", "NAS001")
+    message("Produk ditemukan: Nasi Goreng")
   }
   if (keyword == "mie") {
     config(c1, "text", "MIE001")
+    message("Produk ditemukan: Mie Goreng")
   }
   if (keyword == "MIE001") {
     config(c1, "text", "MIE001")
+    message("Produk ditemukan: Mie Goreng")
   }
-  message("Produk ditemukan!")
+  if (keyword == "MIE") {
+    config(c1, "text", "MIE001")
+    message("Produk ditemukan: Mie Goreng")
+  }
+  if (keyword == "goreng") {
+    message("Ketik lebih spesifik: singkong/pangsit/nasi/mie")
+  }
 })
 
 event(b1, fn() {
@@ -444,9 +550,21 @@ grid_add(g, a3, 0, 3, 3, 1, 0, 1, 1, 1)
 grid_add(g, tbl, 0, 4, 3, 3, 1, 1, 3, 2)
 grid_add(g, b2, 0, 7, 1, 1, 1, 1, 1, 1)
 grid_add(g, b_hapus, 1, 7, 1, 1, 1, 1, 1, 1)
-grid_add(g, b3, 2, 7, 1, 1, 1, 1, 1, 1)
+grid_add(g, b3, 2, 7, 1, 1, 1, 1, 1 , 1)
 grid_add(g, a4, 0, 8, 3, 1, 1, 1, 3, 1)
 add(g)
+
+config(b_search, "background", "blue")
+config(b_search, "foreground", "white")
+config(b1, "background", "orange")
+config(b1, "foreground", "white")
+config(b2, "background", "blue")
+config(b2, "foreground", "white")
+config(b_hapus, "background", "gray")
+config(b_hapus, "foreground", "white")
+config(b3, "background", "red")
+config(b3, "foreground", "white")
+
 size(600, 540)
 title("Kasir Sederhana")
 show()
